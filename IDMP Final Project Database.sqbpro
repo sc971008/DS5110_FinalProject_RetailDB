@@ -28,7 +28,7 @@ CREATE TABLE Invoice(
 );
 
 DROP TABLE IF EXISTS MarketSpending;
-CREATE TABLE MarkeySpending(
+CREATE TABLE MarketSpending(
 	SpendDate date PRIMARY KEY,
 	offlineSpending REAL,
 	onlineSpending REAL
