@@ -10,7 +10,7 @@ Original file is located at
 import pandas as pd
 
 #Imports Retail data to be cleaned
-Retail = pd.read_csv('/Retail.csv')
+Retail = pd.read_csv('cleanData/Clean_Retail.csv')
 
 #Checks for correct data
 Retail.head()
@@ -27,9 +27,9 @@ new_Retail[(new_Retail['InvoiceNo'] == 580137) & (new_Retail["InvoiceDate"] == '
 new_Retail
 
 #Writes cleaned data to new csv
-new_Retail.to_csv('Clean_Retail.csv', index = False)
+new_Retail.to_csv('cleanData/Merged_Retail.csv', index = False)
 
-clean_Retail = pd.read_csv('/Clean_Retail.csv')
+clean_Retail = pd.read_csv('cleanData/Merged_Retail.csv')
 
 #Check clean data
 clean_Retail

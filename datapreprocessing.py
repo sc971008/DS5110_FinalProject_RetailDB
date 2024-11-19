@@ -20,6 +20,8 @@ keySKU.value_counts()
 #Check for any missing values
 keySKU[(keySKU['Product SKU'].isna()) | (keySKU['StockCode'].isna()) ]
 
+keySKU.to_csv('cleanData/Clean_SKU.csv',index = False)
+
 #Preprocessing Marketing_Spend
 ms = pd.read_csv('sourceData/Marketing_Spend.csv')
 ms.rename(columns={"Unnamed: 0":"Spend Date"})
@@ -38,11 +40,11 @@ for i in range(len(online.columns)):
   online[online.columns[i]].dropna()
 online = online.drop_duplicates()
 
-online.to_csv('cleanData/Clean_Online')
+online.to_csv('cleanData/Clean_Online', index = False)
 
 retail = pd.read_csv('sourceData/Retail.csv')
 for i in range(len(retail.columns)):
   retail[retail.columns[i]].dropna()
 retail = retail.drop_duplicates()
 
-retail.to_csv('cleanData/New_Retail.csv')
+retail.to_csv('cleanData/Clean_Retail.csv', index = False)

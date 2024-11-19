@@ -29,7 +29,8 @@ Source data we used: https://www.kaggle.com/datasets/jpallard/google-store-ecomm
 # Phase 3: Import Data after cleaning and parsing.
 First, we clean the normalized source data. 
 
-With Colab using Python pandas, we merged entries with the same identifier to meet uniqueness for relational database importing. For example in retail source data, we have multiple entries with the same `InvoiceId` and `StockCode`.
+With Colab using Python pandas, we merged entries with the same identifier to meet uniqueness for relational database importing. 
 
+For example in retail source data, we have multiple entries with the same `InvoiceId` and `StockCode`.
 
 
