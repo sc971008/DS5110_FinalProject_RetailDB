@@ -7,7 +7,7 @@ CREATE TABLE Key_SKU(
 
 DROP TABLE IF EXISTS Online_Transactions;
 CREATE TABLE Online_Transactions(
-	TransactionID INTEGER PRIMARY KEY,
+	TransactionID INTEGER ,
 	TransactionDate date,
 	ProductSKU TEXT NOT NULL,
 	ProductName TEXT,
@@ -17,6 +17,7 @@ CREATE TABLE Online_Transactions(
 	Revenue REAL,
 	Tax REAL,
 	Delivery REAL,
+	PRIMARY KEY (TransactionID,TransactionDate,ProductSKU),
 	FOREIGN KEY(ProductSKU) REFERENCES Key_SKU(ProductSKU)
 );
 
