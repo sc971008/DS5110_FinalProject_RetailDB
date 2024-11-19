@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Key_SKU;
 CREATE TABLE Key_SKU(
 	ProductSKU	TEXT PRIMARY KEY,
 	stockCode	INTEGER
@@ -20,10 +21,11 @@ CREATE TABLE Online_Transactions(
 
 DROP TABLE IF EXISTS Invoice;
 CREATE TABLE Invoice(
-	InvoiceNo INTEGER PRIMARY KEY,
+	InvoiceNo INTEGER,
 	InvoiceDate date,
 	StockCode INTEGER,
 	Qty Integer,
+	PRIMARY KEY(InvoiceNo, InvoiceDate, StockCode),
 	FOREIGN KEY(StockCode) REFERENCES Key_SKU(StockCode)
 );
 
