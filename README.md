@@ -23,6 +23,39 @@ Performance Evaluation and Employee Performance or Inventory Management Dashboar
 # Phase 1: Schema Design
 ![image](https://github.com/user-attachments/assets/5b78824e-0a02-49d9-ae34-5bb77afdd995)
 
+## SQL cmd to create the database
+CREATE TABLE Key_SKU(
+        ProductSKU      TEXT PRIMARY KEY,
+        stockCode       INTEGER
+);
+CREATE TABLE Online_Transactions(
+        TransactionID INTEGER ,
+        TransactionDate date,
+        ProductSKU TEXT NOT NULL,
+        ProductName TEXT,
+        ProductCategory TEXT,
+        Qty INTEGER,
+        AvgPrice REAL,
+        Revenue REAL,
+        Tax REAL,
+        Delivery REAL,
+        PRIMARY KEY (TransactionID,TransactionDate,ProductSKU),
+        FOREIGN KEY(ProductSKU) REFERENCES Key_SKU(ProductSKU)
+);
+CREATE TABLE Invoice(
+        InvoiceNo INTEGER,
+        InvoiceDate date,
+        StockCode INTEGER,
+        Qty Integer,
+        PRIMARY KEY(InvoiceNo, InvoiceDate, StockCode),
+        FOREIGN KEY(StockCode) REFERENCES Key_SKU(StockCode)
+);
+CREATE TABLE Market_Spending(
+        SpendDate date PRIMARY KEY,
+        offlineSpending REAL,
+        onlineSpending REAL
+);
+
 # Phase 2：Retrieve and observe Raw Data and finalize DB structure.
 Source data we used: https://www.kaggle.com/datasets/jpallard/google-store-ecommerce-data-fake-retail-data?select=Online.csv
 

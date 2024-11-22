@@ -31,7 +31,7 @@ ms['Offline Spend'].fillna(ms['Offline Spend'].median(), inplace = True)
 ms['Online Spend'].fillna(ms['Online Spend'].median(), inplace = True)
 ms = ms.drop_duplicates()
 
-ms.to_csv("cleanData/Clean_Marketing_Spend", index = False)
+ms.to_csv("cleanData/Clean_Marketing_Spend.csv", index = False)
 
 online = pd.read_csv('sourceData/Online.csv')
 online.head()
@@ -40,7 +40,7 @@ for i in range(len(online.columns)):
   online[online.columns[i]].dropna()
 online = online.drop_duplicates()
 
-online.to_csv('cleanData/Clean_Online', index = False)
+online.to_csv('cleanData/Clean_Online.csv', index = False)
 
 retail = pd.read_csv('sourceData/Retail.csv')
 for i in range(len(retail.columns)):
