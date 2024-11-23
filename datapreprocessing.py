@@ -33,8 +33,12 @@ ms = ms.drop_duplicates()
 
 ms.to_csv("cleanData/Clean_Marketing_Spend.csv", index = False)
 
+
 online = pd.read_csv('sourceData/Online.csv')
 online.head()
+# Reformat the date in Online
+online['Date'] = pd.to_numeric(online['Date'])
+online['Date'] = pd.to_datetime(online['Date'], format='%Y%m%d')
 
 for i in range(len(online.columns)):
   online[online.columns[i]].dropna()
