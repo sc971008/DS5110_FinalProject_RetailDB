@@ -44,6 +44,8 @@ for i in range(len(online.columns)):
   online[online.columns[i]].dropna()
 online = online.drop_duplicates()
 
+online = online.drop(online[online["Quantity"].isna()].index)
+
 online.to_csv('cleanData/Clean_Online.csv', index = False)
 
 retail = pd.read_csv('sourceData/Retail.csv')
