@@ -1,0 +1,173 @@
+{% extends "nav.html" %}
+
+{% block title %}Analysis{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Interactive Data Analysis</h1>
+    <p class="text-center mb-4">Click on a thumbnail to view the full analysis details in an overlay.</p>
+
+    <!-- Grid of analysis cards -->
+    <div class="row">
+        {% for analysis in analyses %}
+        <div class="col-md-3 mb-4">
+            <!-- Card for each analysis with click effect -->
+            <div class="card analysis-card">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/' + analysis.image_url) }}" class="card-img-top thumbnail" alt="{{ analysis.title }}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ analysis.title }}</h5>
+                    <p class="card-text description">{{ analysis.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Overlay popup for the clicked card -->
+<div class="overlay" id="overlay">
+    <div class="overlay-content">
+        <!-- Close Button -->
+        <div class="close-btn" id="close-btn">&times;</div>
+        <div class="overlay-card">
+            <img src="" class="overlay-img" id="overlay-img" alt="">
+            <h5 class="overlay-title" id="overlay-title"></h5>
+            <p class="overlay-description" id="overlay-description"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .analysis-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    /* Hover effect for expansion */
+    .analysis-card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Container for the image */
+    .image-container {
+        position: relative;
+        height: 150px; /* Thumbnail size */
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Thumbnail image styling */
+    .thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* Ensures the image covers the container area */
+    }
+
+    /* Initially hide the description */
+    .description {
+        font-size: 0.9rem;
+    }
+
+    /* Overlay styles */
+    .overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay-content {
+        position: relative;
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 800px;
+        width: 70%; /* Make the popup smaller */
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .overlay-card {
+        position: relative;
+    }
+
+    .overlay-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .overlay-title {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .overlay-description {
+        font-size: 1rem;
+        margin-top: 10px;
+        color: #555;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px; /* Set width and height to make it a small circle */
+        height: 30px; /* Equal width and height for a perfect circle */
+        font-size: 20px; /* Adjust font size to fit within the circle */
+        color: white;
+        background-color: black;
+        border-radius: 50%; /* Ensures it’s a circle */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center the "×" */
+        cursor: pointer;
+        z-index: 1100; /* Ensure the button is on top of the content */
+    }
+    
+    .close-btn:hover {
+        background-color: #f44336;
+        color: white;
+    }
+</style>
+
+<!-- Custom JS to handle the overlay logic -->
+<script>
+    // Get all the analysis cards and add event listeners for clicks
+    document.querySelectorAll('.analysis-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const title = card.querySelector('.card-title').textContent;
+            const description = card.querySelector('.description').textContent;
+            const imageUrl = card.querySelector('.thumbnail').src;
+
+            // Set the content of the overlay
+            document.getElementById('overlay-title').textContent = title;
+            document.getElementById('overlay-description').textContent = description;
+            document.getElementById('overlay-img').src = imageUrl;
+
+            // Show the overlay
+            document.getElementById('overlay').style.display = 'flex';
+        });
+    });
+
+    // Close the overlay when the close button is clicked
+    document.getElementById('close-btn').addEventListener('click', function() {
+        document.getElementById('overlay').style.display = 'none';
+    });
+</script>
+
+{% endblock %}

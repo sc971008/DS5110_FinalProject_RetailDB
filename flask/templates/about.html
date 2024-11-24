@@ -1,0 +1,122 @@
+{% extends "nav.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">About the Project</h1>
+
+        <div class="card shadow-sm p-4 mb-4">
+            <h2>DS 5110: Final Project RetailDB</h2>
+
+            <h3>Topic</h3>
+            <p><strong>Managing a Retail Store Database and Analysis (Big Data System)</strong></p>
+
+            <h3>Teams and Roles</h3>
+            <ul>
+                <li><strong>Cheng Shi</strong>: Database Schema Design and Importing</li>
+                <li><strong>Daniel Xiong</strong>: Data Parsing and Cleaning</li>
+                <li><strong>Manish Kanuri</strong>: Data Analysis and Visualization</li>
+            </ul>
+
+            <h3>Project Scope</h3>
+            <p>This project is about designing a database system for managing a retail store, including product inventory, sales transactions, and customer data. We retrieve raw data from multiple resources, import it into the database after cleaning and parsing, and build visualizations and dashboards for insight and analysis, such as Sales Performance Evaluation, Employee Performance, or Inventory Management Dashboard.</p>
+
+            <h3>Development Plan</h3>
+            <ul>
+                <li><strong>Phase 1</strong>: Design the initial DB Schema</li>
+                <li><strong>Phase 2</strong>: Retrieve and observe raw data and finalize DB structure</li>
+                <li><strong>Phase 3</strong>: Import data after cleaning and parsing</li>
+                <li><strong>Phase 4</strong>: Analysis and visualization for insights</li>
+                <li><strong>Phase 5</strong>: Build website to showcase</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <p>We used the following technologies for this project:</p>
+            <ul>
+                <li><strong>Python</strong>: For data parsing and cleaning</li>
+                <li><strong>Flask</strong>: For building the web application</li>
+                <li><strong>SQL</strong>: For managing the database</li>
+                <li><strong>Bootstrap</strong>: For responsive design</li>
+                <li><strong>Matplotlib / Seaborn</strong>: For data visualization</li>
+            </ul>
+
+            <h3>Example Code</h3>
+            <pre><code class="language-python">
+# Example Python code to clean data
+import pandas as pd
+
+data = pd.read_csv('data.csv')
+cleaned_data = data[data['Quantity'].astype(str).str.isdigit()]
+cleaned_data.to_csv('cleaned_data.csv', index=False)
+            </code></pre>
+
+        </div>
+    </div>
+    <style>
+        /* Dark background for the body */
+        body {
+            background-color: #181818; /* GitHub dark background */
+            color: #e1e1e1; /* Light text color for contrast */
+            font-family: Arial, sans-serif;
+        }
+    
+        /* Styling for the card container */
+        .card {
+            background-color: #2d2d2d; /* Dark card background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #e1e1e1; /* Light text inside the card */
+        }
+    
+        /* Style for headings */
+        h2, h3 {
+            color: #f0f0f0;
+            border-bottom: 2px solid #444;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+    
+        /* Style for lists */
+        ul {
+            padding-left: 20px;
+        }
+    
+        ul li {
+            margin-bottom: 8px;
+        }
+    
+        /* Style for code block */
+        pre code {
+            background-color: #1e1e1e; /* Dark code block */
+            border-radius: 5px;
+            padding: 15px;
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            color: #f8f8f2; /* Light text for code */
+        }
+    
+        pre {
+            border-left: 4px solid #444;
+            margin: 1em 0;
+            padding: 15px;
+            background-color: #222222; /* Dark background for the pre block */
+        }
+    
+        /* Add some spacing for mobile view */
+        @media (max-width: 768px) {
+            .card {
+                padding: 15px;
+            }
+    
+            pre code {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    
+    
+{% endblock %}
+
+

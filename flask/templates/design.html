@@ -1,0 +1,88 @@
+{% extends "nav.html" %}
+
+{% block title %}Design{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Design the Database</h1>
+
+        <div class="card shadow-sm p-4 mb-4">
+            <p>     This project is about designing a database system for managing a retail store, including product inventory, sales transactions, and customer data. Then, Retrieve raw data from multiple resources and import it into the database after cleaning and parsing. In the end, Build visualizations and dashboards for insight and analysis. such as Sales Performance Evaluation and Employee Performance or Inventory Management Dashboard<p>
+                            
+            <h2>Schema Design</h2>
+            <h3>ER Diagram</h3>
+            <p><img src="{{ url_for('static', filename='images/schema.png') }}"  alt="ER Diagram" class="img-fluid"></p>
+
+            <h3>Phase 1: Create Database</h3>
+            <p>The SQL command to create the tables located at: <code>SQLCode\CreateCSV.sql</code></p>
+            <p>Cmd to run: <code>python SQLCode\CreateCSV.sql</code></p>
+
+            <h3>Phase 2: Retrieve and Observe Raw Data and Finalize DB Structure</h3>
+            <h5>Source Data</h5>
+            <p>After researching and browsing, we decided to use this dataset from Kaggle, which is sales data from an e-commerce website:</p>
+            <p><a href="https://www.kaggle.com/datasets/jpallard/google-store-ecommerce-data-fake-retail-data?select=Online.csv" target="_blank">Kaggle Dataset</a></p>
+        </div>
+    </div>
+    <style>
+        /* Dark background for the body */
+        body {
+            background-color: #181818; /* GitHub dark background */
+            color: #e1e1e1; /* Light text color for contrast */
+            font-family: Arial, sans-serif;
+        }
+    
+        /* Styling for the card container */
+        .card {
+            background-color: #2d2d2d; /* Dark card background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #e1e1e1; /* Light text inside the card */
+        }
+    
+        /* Style for headings */
+        h2, h3, h4 {
+            color: #f0f0f0;
+            border-bottom: 2px solid #444;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+    
+        /* Style for lists */
+        ul {
+            padding-left: 20px;
+        }
+    
+        ul li {
+            margin-bottom: 8px;
+        }
+    
+        /* Style for code block */
+        pre code {
+            background-color: #1e1e1e; /* Dark code block */
+            border-radius: 5px;
+            padding: 15px;
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            color: #f8f8f2; /* Light text for code */
+        }
+    
+        pre {
+            border-left: 4px solid #444;
+            margin: 1em 0;
+            padding: 15px;
+            background-color: #222222; /* Dark background for the pre block */
+        }
+    
+        /* Add some spacing for mobile view */
+        @media (max-width: 768px) {
+            .card {
+                padding: 15px;
+            }
+    
+            pre code {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+{% endblock %}
