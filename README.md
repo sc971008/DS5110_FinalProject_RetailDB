@@ -58,7 +58,8 @@ And here is the finalized topic we analysed:
 
 # Phase5 : Analysis and visualization for insight.
 We utilized the visualization tools and library from python to genrate stright foward digram and have a website hosting the results.
-![image](https://github.com/user-attachments/assets/188d9738-5940-4bac-a498-0d0e57be32f6)
+![image](https://github.com/user-attachments/assets/15b2d34d-6d4f-4ec6-bbdd-6b350fc6e1c8)
+
 
 
 
