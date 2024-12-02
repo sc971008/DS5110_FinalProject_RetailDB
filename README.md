@@ -4,7 +4,7 @@
 **Managing a Retail Store Database and analysis (Big Data System)**
 
 # Teams and Roles
-- **Cheng Shi**: Database Schema Design and Importing
+- **Cheng Shi**: Database Schema Design and Importing, Web application and hosting.
 - **Daniel Xiong**: Data Parsing and Cleaning
 - **Manish Kanuri**: Data Analysis and visualization
 
