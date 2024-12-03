@@ -4,7 +4,7 @@
 **Managing a Retail Store Database and analysis (Big Data System)**
 
 # Teams and Roles
-- **Cheng Shi**: Database Schema Design and Importing
+- **Cheng Shi**: Database Schema Design and Importing, Web application and hosting.
 - **Daniel Xiong**: Data Parsing and Cleaning
 - **Manish Kanuri**: Data Analysis and visualization
 
@@ -45,11 +45,22 @@ Then we import the data into database using SQL script located: `SQLCode\ReadCSV
 
 # Phase4 : Analysis and visualization for insight.
 After we import out sqlite database into colab notebook. We had a brainstrom about potential analysis idea will generate insight that can help the bussniess.
+And here is the finalized topic we analysed:
 
 1. **Item poplarity (Order item base on Amount of transaction)**
 2. **Revenue Analysis (Top Categories/Products by Revenue)**
 3. **Sales Trends Over Time (Total sales of each Month this Year)**
 4. **Tax and Delivery Cost Impact**
+5. **Profitability Analysis**
+6. **High-Tax Impact Products**
+7. **Revenue by Day of the Week**
+8. **Item Popularity**
+
+# Phase5 : Analysis and visualization for insight.
+We utilized the visualization tools and library from python to genrate stright foward digram and have a website hosting the results.
+![image](https://github.com/user-attachments/assets/15b2d34d-6d4f-4ec6-bbdd-6b350fc6e1c8)
+
+
 
 
 
