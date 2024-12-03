@@ -1,8 +1,76 @@
 {% extends "nav.html" %}
 
-{% block title %}DataHandle{% endblock %}
+{% block title %}Handle Data{% endblock %}
 
 {% block content %}
-<h1>DataHandle</h1>
-<p>This page is about handling and processing data.</p>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Handle Data</h1>
+
+        <div class="card shadow-sm p-4 mb-4">
+            <h2>Phase 3: Import Data After Cleaning and Parsing</h2>
+            <p>First, we clean the normalized source data.</p>
+            <p>With Colab using Python pandas, we merged entries with the same identifier to meet uniqueness for relational database importing.</p>
+            <p>For example, in retail source data, we have multiple entries with the same <code>InvoiceId</code> and <code>StockCode</code>.</p>
+            <p>Then we import the data into the database using the SQL script located at: <code>SQLCode\ReadCSV.sql</code>.</p>
+
+            <h2 class="mt-4">Phase 4: Analysis and Visualization for Insight</h2>
+            <p>After we import our SQLite database into a Colab notebook, we brainstormed potential analysis ideas that can generate insights to help the business:</p>
+            
+            <ol>
+                <li><strong>Item Popularity:</strong> Order items based on the amount of transactions.</li>
+                <li><strong>Revenue Analysis:</strong> Identify top categories/products by revenue.</li>
+                <li><strong>Sales Trends Over Time:</strong> Analyze total sales of each month this year.</li>
+                <li><strong>Tax and Delivery Cost Impact:</strong> Assess the influence of taxes and delivery costs on revenue.</li>
+            </ol>
+        </div>
+    </div>
+    <style>
+        /* Dark background for the body */
+        body {
+            background-color: #181818; /* GitHub dark background */
+            color: #e1e1e1; /* Light text color for contrast */
+            font-family: Arial, sans-serif;
+        }
+    
+        /* Styling for the card container */
+        .card {
+            background-color: #2d2d2d; /* Dark card background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #e1e1e1; /* Light text inside the card */
+        }
+    
+        /* Style for headings */
+        h2, h3 {
+            color: #f0f0f0;
+            border-bottom: 2px solid #444;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+    
+        /* Style for lists */
+        ol {
+            padding-left: 20px;
+        }
+    
+        ol li {
+            margin-bottom: 8px;
+        }
+    
+        /* Style for code block */
+        code {
+            background-color: #1e1e1e; /* Dark code block */
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-family: monospace;
+            color: #f8f8f2; /* Light text for code */
+        }
+    
+        /* Add some spacing for mobile view */
+        @media (max-width: 768px) {
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
 {% endblock %}
